@@ -32,5 +32,5 @@ if (!module.parent) {
   console.log("Listening on", app.get("port"));
 }
 
-model.messages.post();
+model.messages.post('avi', "whatsup", '2014-10-31', 'hell');
 console.log(model.messages.get());

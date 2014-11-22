@@ -13,6 +13,11 @@ CREATE TABLE `Messages` (
   PRIMARY KEY  (`MessageID`)
 );
 
+CREATE TABLE `Users` (
+  `UserName` VARCHAR(40),
+  `UserID` INT(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`UserID`)
+);
 
 
 /*  Execute this file from the command line by typing:
