@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db');
+var path = require('path');
 
 var model = require('./models');
 
@@ -23,8 +24,16 @@ app.use(parser.json());
 // Set up our routes
 app.use("/classes", router);
 
+var clientPath = path.resolve(__dirname, "../client");
+console.log(clientPath);
 // Serve the client files
-app.use(express.static(__dirname + "../client"));
+app.use(express.static(clientPath));
+console.log(clientPath + "/index.html");
+app.get('/', function(req, res){
+  res.redirect('/index.html');
+});
+
+
 
 // If we are being run directly, run the server.
 if (!module.parent) {
@@ -32,5 +41,5 @@ if (!module.parent) {
   console.log("Listening on", app.get("port"));
 }
 
-model.messages.post('avi', "whatsup", '2014-10-31', 'hell');
-console.log(model.messages.get());
+// model.messages.post('avi', "whatsup", '2014-10-31', 'hell');
+// console.log(model.messages.get());
