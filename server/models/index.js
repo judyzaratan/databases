@@ -13,16 +13,15 @@ module.exports = {
 
       db.dbConnect.query(queryString, queryArgs, function(err, results){
         if(err){throw err;}
-        else {
-          // console.log(results);
-          callback(err, results);
+        // console.log(results);
+        callback(err, results);
 
-        }
+
       });
 
     }, // a function which produces all the messages
     post: function (params, callback) {
-
+      console.log(params);
       var queryString = 'insert into Messages (text, userid, roomname) VALUES (?, (select id from users where username = ? limit 1), ?)';
       db.dbConnect.query(queryString, params, function(err, results){
       if(err){throw err;}
@@ -34,23 +33,22 @@ module.exports = {
 
   users: {
     // Ditto as above.
-    get: function () {
+    get: function (callback) {
       var queryString = "SELECT * FROM Users";
       var queryArgs = [];
       db.dbConnect.query(queryString, queryArgs, function(err, results){
         if(err){throw err;}
         else {
-          console.log(results);
-          return results;
+          callback(err, results);
         }
       });
     },
 
-    post: function (username) {
-      db.dbConnect.query('insert into Users (`UserName`) VALUES (' + username + ')', function(err, result){
+    post: function (params, callback) {
+      var queryString = 'insert into Users (`username`) VALUES (?)';
+      db.dbConnect.query(queryString, params, function(err, results){
         if(err){throw err;}
-        console.log('Message inserted');
-
+        callback(err, results);
       });
     }
   }
