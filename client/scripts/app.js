@@ -1,11 +1,10 @@
 // YOUR CODE HERE:
-
 var app;
 $(function() {
   app = {
 //TODO: The current 'addFriend' function just adds the class 'friend'
 //to all messages sent by the user
-    server: 'http://127.0.0.1:3000/classes/chatterbox/',
+    server: 'http://127.0.0.1:3000/classes/messages/',
     username: 'anonymous',
     roomname: 'lobby',
     lastMessageId: 0,
@@ -222,7 +221,7 @@ $(function() {
     },
     startSpinner: function(){
       $('.spinner img').show();
-      $('form input[type=submit]').attr('disabled', "true");
+      // $('form input[type=submit]').attr('disabled', "true");
     },
 
     stopSpinner: function(){

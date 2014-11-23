@@ -5,18 +5,17 @@ USE chat;
 
 /* Create other tables and define schemas for them here! */
 CREATE TABLE `Messages` (
-  `UserName` VARCHAR(40),
-  `MessageContent` VARCHAR(250),
-  `Date` DATE,
-  `ChatRoom` VARCHAR(20),
-  `MessageID` INT(10) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY  (`MessageID`)
+  `userid` INT(10),
+  `text` VARCHAR(200),
+  `roomname` VARCHAR(20),
+  `id` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY  (`id`)
 );
 
 CREATE TABLE `Users` (
-  `UserName` VARCHAR(40),
-  `UserID` INT(10) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`UserID`)
+  `username` VARCHAR(40),
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
 );
 
 
